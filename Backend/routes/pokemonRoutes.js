@@ -1,40 +1,49 @@
 import  db  from "../db/conn.js";
 import  * as pokemonController from '../controllers/pokemonController.js';
-import { ObjectId } from 'mongodb';
 import { Router } from 'express';
+
+import Pokemon from "../models/Pokemon.js";
 
 // const pokemonController = require('../controllers/pokemonContoller.js');
 const router = new Router();
 
 
 router.post('/', async (req, res) => {
-  const collection = await db.collection('users');
-  const newUser = {
-    userName: req.body.name,
-    email: req.body.email,
-    password: req.body.password
-  };
-  console.log(newUser);
-  const result = await collection.insertOne(newUser);
-  res.send(result).status(204);
+  const newPokemon = await Pokemon.create(req.body);
+  res.status(201).json(newPokemon);
+
 })
 
 router.get('/:id', async (req, res) => {
-  const collection = await db.collection('pokemon_caught');
-  console.log(collection);
-  const query = {
-    _id: new ObjectId(req.params.id)
+  try {
+    const pokemon = await Pokemon.findOne({ _id: req.params.id });
+    res.json(pokemon);
   }
-  const result = await collection.findOne(query);
-  res.send(result);
+  catch (error) {
+    console.log(error);
+  }
+
 })
 
 router.put('/:id', async (req, res) => {
-  const collection = await db.collection('users');
-  const query = {
-    _id: ObjectId(req.params.id)
+  try {
+    const pokemon = await Pokemon.findOneAndUpdate({ _id: req.params.id }, req.body, {
+      new: true
+    })
+    res.json(pokemon);
+  } catch (error) {
+    console.log(error);
   }
-  collection.updateOne({_id: query},{$push: {pokemons: req.body.pokemon}})
+
+})
+
+router.delete('/:id', async (req, res) => {
+  try {
+    const pokemon = await Pokemon.findOneAndDelete({ _id: req.params.id }, req.body); {}
+    res.json(pokemon);
+  } catch (error) {
+    console.log(error);
+  }
   
 })
 
