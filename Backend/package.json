@@ -1,0 +1,16 @@
+{
+  "name": "pokemon-app-backend",
+  "type": "module",
+  "main": "index.js",
+
+  "dependencies": {
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.0.3"
+  },
+  "scripts": {
+    "start": "nodemon index.js"
+  }
+}
