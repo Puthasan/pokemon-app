@@ -1,4 +1,4 @@
-import  db  from "../db/conn.js";
+
 import  * as pokemonController from '../controllers/pokemonController.js';
 import { Router } from 'express';
 
@@ -44,7 +44,7 @@ router.delete('/:id', async (req, res) => {
   } catch (error) {
     console.log(error);
   }
-  
+
 })
 
 // Define Pokemon routes
