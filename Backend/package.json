@@ -2,8 +2,8 @@
   "name": "pokemon-app-backend",
   "type": "module",
   "main": "index.js",
-
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
     "mongoose": "^8.1.1",

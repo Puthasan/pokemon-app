@@ -48,7 +48,7 @@ function App() {
       {data ? (
         <div>
           <img src={data.sprite} alt={data.name} />
-          <p>Name: {data.name}</p>
+          <p>Name: {data.name.charAt(0).toUpperCase() + data.name.substring(1)}</p>
           <p>
             Type:{" "}
             {Array.isArray(data.type)
