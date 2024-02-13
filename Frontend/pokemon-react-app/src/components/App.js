@@ -1,10 +1,14 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchDataAction } from "../actions/index.js"; // Import your action(s) here
+import HomePage from "../pages/HomePage.js";
+import LoginSignUp from "../pages/LoginSignUp.js";
+import { UserContext } from "../context/UserContext";
+import { useState } from "react";
 
 
 function App() {
   const dispatch = useDispatch();
+  const [user, setUser] = useState(null);
   const data = useSelector((state) => state.data); // Assuming "data" is a piece of state in your Redux store
 
   const typeEmojis = {
@@ -35,35 +39,17 @@ function App() {
   console.log(data)
 
 
-  const fetchData = () => {
-    const id = Math.floor(Math.random() * 1302) + 1;
-    dispatch(fetchDataAction(id));
-  };
-  // console.log("hello",fetchData())
-  
+
   return (
+    <UserContext.Provider value={{ user, setUser }}>
+
+    
     <div className="App">
-      <h1>My Pokemon App</h1>
-      <button onClick={fetchData}>Fetch Random Pokemon Data</button>
-      {data ? (
-        <div>
-          <img src={data.sprite} alt={data.name} />
-          <p>Name: {data.name.charAt(0).toUpperCase() + data.name.substring(1)}</p>
-          <p>
-            Type:{" "}
-            {Array.isArray(data.type)
-              ? data.type.map((type, index) => (
-                  <span key={index}>
-                    {type} {typeEmojis[type]}{" "}
-                  </span>
-                ))
-              : `${data.type} ${typeEmojis[data.type]}`}
-          </p>
-        </div>
-      ) : (
-        <p>Loading...</p>
-      )}
+      {user ? <HomePage 
+      data = {data}/> : <LoginSignUp/>
+} 
     </div>
+      </UserContext.Provider>
   );
 }
 

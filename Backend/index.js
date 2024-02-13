@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import "./loadEnv.js";
 import { conn } from "./db/conn.js";conn();
+import cors from 'cors'
 
 import pokemonRoutes from './routes/pokemonRoutes.js';
 import userRoutes from './routes/users.js'
@@ -16,6 +17,7 @@ app.use(express.json());
 // Routes
 app.use('/api/pokemon', pokemonRoutes);
 app.use('/api/users', userRoutes);
+app.use(cors())
 
 
 app.get('/', (req, res) => {

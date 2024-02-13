@@ -97,18 +97,31 @@ router.post('/signin', async (req, res) => {
   // check if user exist
   // check if password is a match
   // send the db user
-  const user = {_id: '1', email: 'alex@gmail.com', userName: 'alex123'};
-  res.json(user);
+  console.log("Sign in request body:", req.body);
+  // const user = {_id: '1', email: 'alex@gmail.com', userName: 'alex123'};
+  // res.json(user);
+  const user = await User.findOne({ email: req.body.email, password: req.body.password });
+  if (!user) {
+    return res.status(401).json({ msg: "Invalid Credentials" });
+  } else {
+    res.json(user);
+  }
 });
 
 /**
 * POST /signup
 */
 router.post('/signup', async (req, res) => {
-  // check email is not in db
-  // create a new user in db
-  // send the new user
-  const user = {_id: '1', email: 'alex@gmail.com', userName: 'alex123'};
+  const { email, username } = req.body;
+  const existingEmail = await User.findOne({ email });
+  const existingUsername = await User.findOne({ username });
+  if (existingEmail) {
+    return res.status(409).json({ msg: "Email already being used! Please login" });
+  } else if (existingUsername) {
+    return res.status(409).json({ msg: "Username already exists!" });
+  }
+
+  const user = await User.create(req.body);
   res.json(user);
 });
 
