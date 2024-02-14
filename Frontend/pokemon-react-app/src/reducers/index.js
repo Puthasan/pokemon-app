@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 import dataReducer from '../store/index.js';
-import { STORE_DATA } from '../actions/index.js';
+import { STORE_DATA } from '../actions/fetchPokemonAction.js';
+import catchReducer from './catchReducer.js';
 
 const initialState = {
   data: null,
@@ -8,6 +9,7 @@ const initialState = {
 
 const rootReducer = combineReducers({
   data: dataReducer,
+  catch: catchReducer,
   // Add more reducers as needed
 });
 

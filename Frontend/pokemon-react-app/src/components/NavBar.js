@@ -21,10 +21,10 @@ function NavBar() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/pokemon">Pokemon</Link>
+          <Link to="/catch">Catch Page</Link>
         </li>
         <li>
-          <Link to="/about">About</Link>
+          <Link to="/leaderboards">Leaderboards</Link>
         </li>
       </ul>
 

@@ -1,11 +1,15 @@
 import { useRef, useState, useContext } from "react";
 import axios from "axios";
 import { UserContext } from "../context/UserContext";
+import "./LoginSignUp.css";
 
 function LoginSignUp() {
   const userCtx = useContext(UserContext);
   const { setUser } = userCtx;
 
+
+
+  const usernameInputRef = useRef(null);
   const emailInputRef = useRef(null);
   const passwordInputRef = useRef(null);
 
@@ -14,6 +18,10 @@ function LoginSignUp() {
   const handleSignIn = async (e) => {
     e.preventDefault();
 
+    if (usernameInputRef.current.value === "") {
+      usernameInputRef.current.focus();
+      return;
+    }
     if (emailInputRef.current.value === "") {
       emailInputRef.current.focus();
       return;
@@ -23,8 +31,9 @@ function LoginSignUp() {
       return;
     }
 
-    // make a POST request to the backend
-    const res = await axios.get("http://localhost:3001/api/users/signin", {
+    // make a GET request to the backend
+    const res = await axios.post("http://localhost:3001/api/users/signin", {
+      username: usernameInputRef.current.value,
       email: emailInputRef.current.value,
       password: passwordInputRef.current.value,
     });
@@ -36,6 +45,10 @@ function LoginSignUp() {
   const handleSignUp = async (e) => {
     e.preventDefault();
 
+    if (usernameInputRef.current.value === "") {
+      usernameInputRef.current.focus();
+      return;
+    }
     if (emailInputRef.current.value === "") {
       emailInputRef.current.focus();
       return;
@@ -46,13 +59,20 @@ function LoginSignUp() {
     }
 
     // make a POST request to the backend
-    const res = await axios.post("http://localhost:3001/api/users/signup", {
-      email: emailInputRef.current.value,
-      password: passwordInputRef.current.value,
-    });
-
-    console.log(res.data);
-    setUser(res.data);
+    try {
+      
+      const res = await axios.post("http://localhost:3001/api/users/signup", {
+        username: usernameInputRef.current.value,
+        email: emailInputRef.current.value,
+        password: passwordInputRef.current.value,
+      });
+      
+      console.log(res.data);
+      setUser(res.data);
+      
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   return (
@@ -70,13 +90,22 @@ function LoginSignUp() {
             }}
           >
             <h3>Sign In</h3>
+
+            <label htmlFor="username">Username</label>
+            <input
+              ref={usernameInputRef}
+              name="username"
+              id="username"
+              type="text"
+              placeholder="Username"
+            />
             <label htmlFor="email">Email</label>
             <input
               ref={emailInputRef}
               name="email"
               id="email"
               type="text"
-              placeholder="Email or phone"
+              placeholder="Email"
             />
             <label htmlFor="password">Password</label>
             <input
@@ -103,13 +132,22 @@ function LoginSignUp() {
             }}
           >
             <h3>Sign Up</h3>
+
+            <label htmlFor="username">Username</label>
+            <input
+              ref={usernameInputRef}
+              name="username"
+              id="username"
+              type="text"
+              placeholder="Username"
+            />
             <label htmlFor="email">Email</label>
             <input
               ref={emailInputRef}
               name="email"
               id="email"
               type="text"
-              placeholder="Email or phone"
+              placeholder="Email"
             />
             <label htmlFor="password">Password</label>
             <input

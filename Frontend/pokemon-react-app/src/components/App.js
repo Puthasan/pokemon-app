@@ -1,55 +1,52 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+
+
 import HomePage from "../pages/HomePage.js";
 import LoginSignUp from "../pages/LoginSignUp.js";
-import { UserContext } from "../context/UserContext";
+import Leaderboards from "../pages/Leaderboards.js";
+
+
 import { useState } from "react";
+import NavBar from "./NavBar.js";
+import { Routes, Route } from "react-router-dom";
+
+import CatchPage from "../pages/catchPage.js";
+
+
+import { UserContext } from "../context/UserContext.js";
+import { ThemeContext } from "../context/ThemeContext.js";
 
 
 function App() {
-  const dispatch = useDispatch();
   const [user, setUser] = useState(null);
+  const [theme, setTheme] = useState("light");
   const data = useSelector((state) => state.data); // Assuming "data" is a piece of state in your Redux store
 
-  const typeEmojis = {
-    grass: "🌿",
-    fire: "🔥",
-    water: "💧",
-    bug: "🐞",
-    normal: "🧑",
-    poison: "☠️",
-    electric: "⚡",
-    ground: "🌍",
-    fairy: "🧚",
-    fighting: "🥊",
-    psychic: "🧠",
-    rock: "⛰️",
-    ghost: "👻",
-    ice: "❄️",
-    dragon: "🐉",
-    steel: "🛡️",
-    flying: "🕊️",
-    dark: "🌑",
-    ghost: "👻",
-    unknown: "❓",
-    shadow: "👤",
-    // Add more types and emojis as needed
-  };
-
-  console.log(data)
-
-
+  // console.log(data);
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-
-    
-    <div className="App">
-      {user ? <HomePage 
-      data = {data}/> : <LoginSignUp/>
-} 
-    </div>
-      </UserContext.Provider>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+      
+      <div className="App">
+        {user ? (
+          <>
+            <NavBar />
+            <Routes>
+              <Route path="/" element={<HomePage data={data}/>} />
+              <Route path="/catch" element={<CatchPage />} />
+              <Route path="/leaderboards" element={<Leaderboards />} />
+              <Route path="/login" element={<LoginSignUp />} />
+              <Route path="/signup" element={<LoginSignUp />} />
+            </Routes>
+          </>
+        ) : (
+          <LoginSignUp />
+        )}
+      </div>
+    </ThemeContext.Provider>
+    </UserContext.Provider>
   );
 }
 

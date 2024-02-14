@@ -13,11 +13,12 @@ const PORT = process.env.PORT || 3001;
 
 
 app.use(express.json());
+app.use(cors())
 
 // Routes
 app.use('/api/pokemon', pokemonRoutes);
 app.use('/api/users', userRoutes);
-app.use(cors())
+
 
 
 app.get('/', (req, res) => {

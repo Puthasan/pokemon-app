@@ -1,0 +1,86 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/305c01e6-3141-4a4f-9fe6-c0f1abb7ce1c/d3e1i4c-f6dee4ac-16dc-49f2-a398-220f7c65e860.jpg/v1/fill/w_894,h_894,q_70,strp/falling_pokeballs_wallpaper_by_neui_d3e1i4c-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTgwMCIsInBhdGgiOiJcL2ZcLzMwNWMwMWU2LTMxNDEtNGE0Zi05ZmU2LWMwZjFhYmI3Y2UxY1wvZDNlMWk0Yy1mNmRlZTRhYy0xNmRjLTQ5ZjItYTM5OC0yMjBmN2M2NWU4NjAuanBnIiwid2lkdGgiOiI8PTE4MDAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.2VlF7IB6GmC2E-QFGLXcgcA4ylP308MSp5raMdfuD4g'); /* A subtle grid pattern */
+}
+/* background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); A subtle grid pattern */
+
+h1 {
+  font-size: 36px;
+  color: yellow; /* pokemon logo color */
+  margin-bottom: 20px;
+  font-family: 'Press Start 2P', cursive; /* Pixelated font for a retro game feel */
+  text-shadow: #333 0 10px 10px;
+}
+
+
+div {
+  background-color: #fff;
+  border: 02px solid #3b4cca; /* Blue border color like the Pokémon game interface */
+  border-radius: 08px;
+  padding: 20px;
+  margin-top: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-image: url('https://www.transparenttextures.com/patterns/cubes.png'); /* A subtle grid pattern */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h3 {
+  font-size: 20px;
+  color: #31a4b1; /* Water-type blue for subheadings */
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+input {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f3f3f3; /* Lighter background for input fields */
+}
+
+button {
+  background-color: #f3350d; /* Fire-type red for primary buttons */
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #c5300d; /* Darker red on hover */
+}
+
+span {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #333;
+}
+
+button.toggle-btn {
+  background-color: #78c850; /* Grass-type green for toggle buttons */
+  color: #fff;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button.toggle-btn:hover {
+  background-color: #5ca941; /* Darker green on hover */
+}

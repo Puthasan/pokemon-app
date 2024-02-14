@@ -1,14 +1,39 @@
-import { fetchDataAction } from "../actions/index.js"; // Import your action(s) here
-
+import { fetchDataAction } from "../actions/fetchPokemonAction"; // Import your action(s) here
+import { useDispatch } from "react-redux";
 
 
 function HomePage({data}) {
+  const dispatch = useDispatch();
   const fetchData = () => {
-    const id = Math.floor(Math.random() * 1302) + 1;
+    const id = Math.floor(Math.random() * 1000) + 1;
     dispatch(fetchDataAction(id));
   };
 
   
+  const typeEmojis = {
+    grass: "🌿",
+    fire: "🔥",
+    water: "💧",
+    bug: "🐞",
+    normal: "🧑",
+    poison: "☠️",
+    electric: "⚡",
+    ground: "🌍",
+    fairy: "🧚",
+    fighting: "🥊",
+    psychic: "🧠",
+    rock: "⛰️",
+    ghost: "👻",
+    ice: "❄️",
+    dragon: "🐉",
+    steel: "🛡️",
+    flying: "🕊️",
+    dark: "🌑",
+    ghost: "👻",
+    unknown: "❓",
+    shadow: "👤",
+    // Add more types and emojis as needed
+  };
 
 
   return(
