@@ -7,8 +7,8 @@ import { addCaughtPokemonAction } from "../actions/userActions";
 
 // Define the CatchPage component
 function CatchPage({ data, userId }) {
-  console.log("this is the catchpage",data)
-  console.log("user", userId);
+  // console.log("this is the catchpage",data)
+  // console.log("user", userId);
   const dispatch = useDispatch();
   const isCatching = useSelector((state) => state.isCatching);
   const catchResult = useSelector((state) => state.catchResult);
@@ -28,6 +28,11 @@ function CatchPage({ data, userId }) {
     // }
     // dispatch(catchPokemonAction());
     dispatch(catchPokemonAction( pokemonId, pokemonName, pokemonSprite, caught_by_user ));
+    if (catchResult) {
+      dispatch(addCaughtPokemonAction( pokemonId, pokemonName, pokemonSprite, caught_by_user ));
+    }
+
+    // console.log(caughtPokemon)
   };
   
   const fetchData = () => {

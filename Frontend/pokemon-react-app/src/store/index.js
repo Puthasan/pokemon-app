@@ -7,6 +7,10 @@ import {
   STORE_DATA
 } from '../actions/index.js';
 
+import { configureStore } from '@reduxjs/toolkit';
+
+import myPokemonReducer from '../reducers/myPokemonReducer.js';
+
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -53,10 +57,13 @@ const rootReducerCombined = combineReducers({
   // Add more reducers as needed
 });
 
-const store = createStore(
-  rootReducerCombined,
-  composeEnhancers(applyMiddleware(thunk))
-)
+const store = configureStore({
+
+  reducer: {
+    myPokemon: myPokemonReducer
+  }
+  }
+  )
 
 
 export default store;

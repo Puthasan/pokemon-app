@@ -2,6 +2,9 @@ import {
   CATCH_POKEMON_REQUEST,
   CATCH_POKEMON_SUCCESS,
   CATCH_POKEMON_FAILURE,
+  RETRIEVE_POKEMON_FAILURE,
+  RETRIEVE_POKEMON_SUCCESS,
+  UPDATE_CAUGHT_POKEMON
 } from '../actions/catchPokemonAction.js';
 
 const initialState = {
@@ -13,6 +16,25 @@ const initialState = {
 
 const catchReducer = (state = initialState, action) => {
   switch (action.type) {
+    case UPDATE_CAUGHT_POKEMON:
+      return {
+        ...state,
+        caughtPokemons: action.payload,
+        error: null,
+      }
+    case RETRIEVE_POKEMON_SUCCESS:
+      return {
+        ...state,
+        caughtPokemons: action.payload,
+        error: null,
+      }
+    case RETRIEVE_POKEMON_FAILURE:
+      return {
+        ...state,
+        caughtPokemons: [],
+        error: action.payload,
+        
+      }
     case CATCH_POKEMON_REQUEST:
       return {
         ...state,

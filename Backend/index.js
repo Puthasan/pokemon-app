@@ -7,6 +7,7 @@ import cors from 'cors'
 import pokemonRoutes from './routes/pokemonRoutes.js';
 import userRoutes from './routes/users.js'
 import caughtPokemonRoutes from './routes/caughtPokemon.js';
+import myPokemonRoutes from './routes/myPokemonRoutes.js'
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -20,6 +21,7 @@ app.use(cors())
 app.use('/api/pokemon', pokemonRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/caughtPokemon', caughtPokemonRoutes);
+app.use('/api/myPokemon', myPokemonRoutes);
 
 
 

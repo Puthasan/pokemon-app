@@ -5,6 +5,7 @@ import { useSelector } from "react-redux";
 import HomePage from "../pages/HomePage.js";
 import LoginSignUp from "../pages/LoginSignUp.js";
 import Leaderboards from "../pages/Leaderboards.js";
+import MyPokemon from "../pages/MyPokemon.js";
 
 
 import { useState } from "react";
@@ -38,6 +39,7 @@ function App() {
               <Route path="/" element={<HomePage data={data}/>} />
               <Route path="/catch" element={<CatchPage data={data} userId={user._id}/>} />
               {/* <Route path="/leaderboards" element={<Leaderboards />} /> */}
+              <Route path="/my-pokemon" element={<MyPokemon  userId={user._id}/>}/>
               <Route path="/login" element={<LoginSignUp />} />
               <Route path="/signup" element={<LoginSignUp />} />
             </Routes>

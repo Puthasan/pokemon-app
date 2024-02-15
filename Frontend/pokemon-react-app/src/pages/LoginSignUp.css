@@ -9,7 +9,7 @@ main {
 
 h1 {
   font-size: 36px;
-  color: yellow; /* pokemon logo color */
+  color: #fff700; /* pokemon logo color */
   margin-bottom: 20px;
   font-family: 'Press Start 2P', cursive; /* Pixelated font for a retro game feel */
   text-shadow: #333 0 10px 10px;

@@ -24,7 +24,7 @@ function NavBar() {
           <Link to="/catch">Catch Page</Link>
         </li>
         <li>
-          <Link to="/leaderboards">Leaderboards</Link>
+          <Link to="/my-pokemon">My Pokemon</Link>
         </li>
       </ul>
 

@@ -58,6 +58,8 @@ export const catchPokemonAction = () => async (dispatch) => {
 
 
 
+
+
 export const fetchDataAction = (pokemonId) => async (dispatch) => {
   try {
     dispatch(fetchDataRequest());

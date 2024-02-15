@@ -3,6 +3,7 @@ import dataReducer from '../store/index.js';
 import { STORE_DATA } from '../actions/fetchPokemonAction.js';
 import catchReducer from './catchReducer.js';
 import userReducer from './userReducer.js';
+import myPokemonReducer from './myPokemonReducer.js';
 
 
 const initialState = {
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
   user: userReducer,
   data: dataReducer,
   catch: catchReducer,
+  myPokemon: myPokemonReducer,
   // Add more reducers as needed
 });
 
