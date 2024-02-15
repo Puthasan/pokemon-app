@@ -19,7 +19,7 @@ I plan to make the "Throw Pokéball" button to have animations to catch the fetc
 
 I also need to update and tweak plenty of things for the Login/SignUp page.
 
-i plan to add a inventory for the caught Pokémon and make it look list of Pokémon with the data for each user.
+I plan to add a inventory for the caught Pokémon and make it look list of Pokémon with the data for each user because what I've been trying at the moment hasn't been working.
 
 # What I've Learned
 
