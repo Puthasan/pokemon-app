@@ -20,3 +20,10 @@ I plan to make the "Throw Pokeball" button to have animations to catch the fetch
 I also need to update and tweak plenty of things for the Login/SignUp page.
 
 i plan to add a inventory for the caught pokemon and make it look list of pokemon with the data for each user.
+
+# What I've Learned
+
+I learned to never use react + react-redux together because it can confuse the crap out of you.
+Also mongodb + mongoose
+
+JUST ONE OR THE OTHER SO YOU DONT GET CONFUSED!!! 
