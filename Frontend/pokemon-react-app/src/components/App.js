@@ -20,6 +20,7 @@ import { ThemeContext } from "../context/ThemeContext.js";
 
 function App() {
   const [user, setUser] = useState(null);
+  // console.log("user", user._id);
   const [theme, setTheme] = useState("light");
   const data = useSelector((state) => state.data); // Assuming "data" is a piece of state in your Redux store
 
@@ -35,8 +36,8 @@ function App() {
             <NavBar />
             <Routes>
               <Route path="/" element={<HomePage data={data}/>} />
-              <Route path="/catch" element={<CatchPage />} />
-              <Route path="/leaderboards" element={<Leaderboards />} />
+              <Route path="/catch" element={<CatchPage data={data} userId={user._id}/>} />
+              {/* <Route path="/leaderboards" element={<Leaderboards />} /> */}
               <Route path="/login" element={<LoginSignUp />} />
               <Route path="/signup" element={<LoginSignUp />} />
             </Routes>

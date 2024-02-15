@@ -7,7 +7,7 @@ import {
 const initialState = {
   isCatching: false,
   catchResult: null,
-  caughtPokemon: null,
+  caughtPokemons: [],
   error: null,
 };
 
@@ -45,17 +45,5 @@ const catchReducer = (state = initialState, action) => {
   }
 };
 
-// Helper function to generate random Pokemon data for demonstration
-const generateRandomPokemon = () => {
-  const types = ['grass', 'fire', 'water', 'bug', 'normal', 'poison']; // Add more types as needed
-  const randomType = types[Math.floor(Math.random() * types.length)];
-
-  return {
-    id: Math.floor(Math.random() * 1000) + 1,
-    name: 'Random Pokemon',
-    sprite: 'https://example.com/pokemon.png', // Replace with actual sprite URL
-    type: [randomType],
-  };
-};
 
 export default catchReducer;

@@ -1,3 +1,5 @@
+import axios from "axios";
+
 export const CATCH_POKEMON_REQUEST = 'CATCH_POKEMON_REQUEST';
 export const CATCH_POKEMON_SUCCESS = 'CATCH_POKEMON_SUCCESS';
 export const CATCH_POKEMON_FAILURE = 'CATCH_POKEMON_FAILURE';
@@ -16,15 +18,35 @@ export const catchPokemonFailure = (error) => ({
   payload: error,
 });
 
-export const catchPokemonAction = () => async (dispatch) => {
+export const catchPokemonAction = (pokemonId, pokemonName, pokemonSprite, caught_by_user) => async (dispatch) => {
   try {
     dispatch(catchPokemonRequest());
 
-    // Add your catch logic here
-    const isCaught = Math.random() < 0.5; // For example, 50% chance of success
+    console.log("in catchPokemonAction");
+    console.log(pokemonId, pokemonName, pokemonSprite, caught_by_user);
 
-    dispatch(catchPokemonSuccess(isCaught));
-  } catch (error) {
-    dispatch(catchPokemonFailure(error.message));
-  }
+    
+      
+      const res = await axios.post("http://localhost:3001/api/caughtPokemon", {
+        pokemon_name: pokemonName,
+        pokemon_id: pokemonId,
+        url_to_sprite: pokemonSprite,
+        caught_by_user: caught_by_user
+      });
+      
+      console.log(res.data);
+      // setUser(res.data);
+      
+    } catch (error) {
+      console.log(error.message);
+    }
+
+
+  //   // Add your catch logic here
+  //   const isCaught = Math.random() < 0.5; // For example, 50% chance of success
+
+  //   dispatch(catchPokemonSuccess(isCaught));
+  // } catch (error) {
+  //   dispatch(catchPokemonFailure(error.message));
+  // }
 };

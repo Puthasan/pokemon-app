@@ -47,6 +47,7 @@ const dataReducer = (state = initialDataState, action) => {
   
 };
 
+
 const rootReducerCombined = combineReducers({
   data: dataReducer,
   // Add more reducers as needed
