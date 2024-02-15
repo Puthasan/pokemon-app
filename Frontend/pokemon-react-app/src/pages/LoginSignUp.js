@@ -77,7 +77,8 @@ function LoginSignUp() {
 
   return (
     <main>
-      <h1>Login/Sign Up</h1>
+      <h1>Welcome to the Pokémon Catcher!</h1>
+      <h3>Login/Sign Up</h3>
 
       {showSignUp ? (
         <div>
