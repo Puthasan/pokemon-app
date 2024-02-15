@@ -6,6 +6,7 @@ import HomePage from "../pages/HomePage.js";
 import LoginSignUp from "../pages/LoginSignUp.js";
 // import Leaderboards from "../pages/Leaderboards.js";
 import MyPokemon from "../pages/MyPokemon.js";
+import AboutPage from "../pages/AboutPage.js";
 
 
 import { useState } from "react";
@@ -42,6 +43,7 @@ function App() {
               <Route path="/my-pokemon" element={<MyPokemon data={data} userId={user._id}/>}/>
               <Route path="/login" element={<LoginSignUp />} />
               <Route path="/signup" element={<LoginSignUp />} />
+              <Route path="/about" element={<AboutPage />} />
             </Routes>
           </>
         ) : (
