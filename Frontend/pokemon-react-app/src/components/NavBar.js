@@ -26,6 +26,9 @@ function NavBar() {
         <li>
           <Link to="/my-pokemon">My Pokemon</Link>
         </li>
+        <li>
+          <Link to="/about">About</Link>
+        </li>
       </ul>
 
       <button onClick={handleClick}>{theme}</button>

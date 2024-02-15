@@ -2,7 +2,7 @@
 
 const initialState = {
   // other user-related properties
-  myCaughtPokemons: [],
+  myPokemon: { myCaughtPokemons: [] },
 };
 
 const myPokemonReducer = (state = initialState, action) => {

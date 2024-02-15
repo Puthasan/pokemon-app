@@ -10,4 +10,4 @@ const rootReducer = combineReducers({
   // other reducers
 });
 
-export default rootReducer;
+const store = createStore(rootReducer);

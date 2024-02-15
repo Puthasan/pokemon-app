@@ -7,6 +7,7 @@ import rootReducer from './reducers';
 import App from './components/App';
 import { BrowserRouter } from 'react-router-dom';
 
+
 // Create Redux store with middleware
 const store = createStore(rootReducer, applyMiddleware(thunk));
 
