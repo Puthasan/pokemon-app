@@ -90,7 +90,7 @@ function LoginSignUp() {
               padding: "10px",
             }}
           >
-            <h3>Sign In</h3>
+            <h2>Sign In</h2>
 
             <label htmlFor="username">Username</label>
             <input
@@ -156,6 +156,8 @@ function LoginSignUp() {
               name="password"
               id="password"
               type="text"
+              placeholder="Password"
+
             />
             <button type="submit">Sign Up</button>
           </form>

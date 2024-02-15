@@ -94,6 +94,7 @@ function CatchPage({ data, userId }) {
         <p>Loading...</p>
         )}
         <button onClick={throwPokeball}>Throw Pokeball</button>
+        <p>Don't worry its a 100% catch rate at the moment so just press the button and move on...</p>
       
         
         {/* <button onClick={throwPokeball}>Throw Pokeball</button> */}
